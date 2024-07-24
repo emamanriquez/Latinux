@@ -2,7 +2,8 @@ import React from "react";
 
 const LoginUser = () => {
   return (
-    <div className="w-full mas-w-xs">
+    <div className="w-full max-w-xs">
+      <button className="">Regresar</button>
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
           <label className="block text-gray-700 text-sn font-bold mb-2">
@@ -28,22 +29,18 @@ const LoginUser = () => {
             placeholder="*********"
             type="password"
           />
-          <p className="text-red-500 text-xs italic">
-            Por favor escriba su contraseña
-          </p>
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center">
           <button
-            className="bg-green-500 hover:bg-black-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-orange-500 text-white font-bold py-1 px-8 rounded focus:outline-none focus:shadow-outline"
             type="button"
           >
             Iniciar Sesion
           </button>
-          <a
-            className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-700"
-            href="#"
-          >
-            has olvidado tu contraseña?
+        </div>
+        <div className="flex items-center justify-center m-7">
+          <a className="font-bold text-sm text-green-500" href="#">
+            Perdiste la contraseña?
           </a>
         </div>
       </form>
