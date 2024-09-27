@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const LoginUser = () => {
+  const USERNAME = "admin";
+  const PASSWORD = "123";
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [login, setLogin] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("pase por aca");
+    if (username === USERNAME && PASSWORD === password) {
+      setLogin(true);
+      console.log("yendo a la home");
+      setError("");
+    } else {
+      setError("Usuario o contraseña incorrecta");
+      setLogin(false);
+      console.log(setError);
+    }
+  };
+
   return (
     <div className="w-full max-w-xs">
       <button className="">Regresar</button>
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div></div>
+      <form
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={handleSubmit}
+      >
         <div className="mb-4">
           <label className="block text-gray-700 text-sn font-bold mb-2">
             Username
@@ -14,6 +39,8 @@ const LoginUser = () => {
             id="username"
             type="text"
             placeholder="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -28,12 +55,14 @@ const LoginUser = () => {
             id="password"
             placeholder="*********"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div className="flex items-center justify-center">
           <button
             className="bg-orange-500 text-white font-bold py-1 px-8 rounded focus:outline-none focus:shadow-outline"
-            type="button"
+            type="submit"
           >
             Iniciar Sesion
           </button>
