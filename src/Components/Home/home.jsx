@@ -1,47 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import img1 from "../../assets/bannerprueba.png";
 
 const Home = () => {
+  const [activePage, setActivePage] = useState("inicio");
+
   return (
     <div className="text-black-900 h-screen">
       <header className="bg-yellow-60 text-black py-4">
         <div className="container mx-auto flex justify-between items-center px-4">
           <h1 className="text-3xl font-bold text-red-500">Comunidad Latinux</h1>
           <nav>
-            <a href="#" className="text-white hover:text-gray-300 ml-4">
+            <a
+              href="/"
+              className={`ml-4 font-bold ${activePage === "inicio" ? "text-3xl text-white" : "text-xl text-gray-300"
+                }`}
+              onClick={() => setActivePage("inicio")}
+            >
               Inicio
             </a>
-            <a href="#" className="text-white hover:text-gray-300 ml-4">
+            <a
+              href="/foros"
+              className={`ml-4 font-bold ${activePage === "foro" ? "text-3xl text-white" : "text-xl text-gray-300"
+                }`}
+              onClick={() => setActivePage("foro")}
+            >
               Foros
             </a>
-            <a href="#" className="text-white hover:text-gray-300 ml-4">
+            <a
+              href="#"
+              className={`ml-4 font-bold ${activePage === "tutoriales" ? "text-3xl text-white" : "text-xl text-gray-300"
+                }`}
+              onClick={() => setActivePage("tutoriales")}
+            >
               Tutoriales
             </a>
-            <a href="#" className="text-white hover:text-gray-300 ml-4">
+            <a
+              href="#"
+              className={`ml-4 font-bold ${activePage === "contacto" ? "text-3xl text-white" : "text-xl text-gray-300"
+                }`}
+              onClick={() => setActivePage("contacto")}
+            >
               Contacto
             </a>
           </nav>
         </div>
 
-        <div class="flex justify-end mt-9">
+        <div className="flex justify-end mt-9">
           <input
             type="text"
-            class="text-white max-w-md px-4 py-1 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-white max-w-md px-4 py-1 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Buscar en los foros..."
           />
-          <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
             Buscar
           </button>
         </div>
       </header>
+
       <div>
         <img src={img1} alt="banner" />
       </div>
-      <div class="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto mt-8">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">
+
+      <div className=" p-6 rounded-lg shadow-2xl max-w-5xl mx-auto mt-8">
+        <h2 className="text-2xl font-bold text-white-800 mb-4">
           Bienvenidos a nuestra Comunidad de Linux
         </h2>
-        <p class="text-gray-700 mb-4">
+        <p className="text-white-700 mb-4">
           Somos una comunidad grande y unida de entusiastas y expertos en Linux.
           Este foro ha sido creado con un único propósito: ofrecer ayuda y
           soluciones a los problemas que puedan surgir al usar las distintas
@@ -49,22 +73,22 @@ const Home = () => {
           avanzado, aquí encontrarás un espacio donde aprender y compartir
           conocimientos es lo más importante.
         </p>
-        <p class="text-gray-700 mb-4">
+        <p className="text-white-700 mb-4">
           Nuestro objetivo no es obtener beneficios materiales; lo único que
           buscamos es que más personas descubran Linux, comprendan su diversidad
           en distribuciones y aprovechen su increíble funcionalidad. Juntos,
           resolvemos dudas, superamos desafíos técnicos, y promovemos el uso de
           Linux en todas sus formas.
         </p>
-        <p class="text-gray-700 font-semibold">
+        <p className="text-white-700 font-semibold">
           Aquí, la cooperación y el aprendizaje son los pilares que nos guían.
           ¡Únete a nosotros, comparte tu experiencia y aprendamos juntos sobre
           el maravilloso mundo de Linux!
         </p>
       </div>
-      <div class="flex justify-center mt-9">
+      <div className="flex justify-center mt-9">
         <a href="/loginuser">
-          <button class=" px-6 py-1 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
+          <button className="px-6 py-1 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
             Regístrate
           </button>
         </a>
@@ -119,7 +143,7 @@ const Home = () => {
         </a>
         {/* <!-- Enlace a WhatsApp --> */}
         <a
-          href="https://wa.me/tu_numero"
+          href="https://wa.me/2494513570"
           target="_blank"
           class="text-gray-500 hover:text-green-500"
         >
@@ -132,6 +156,13 @@ const Home = () => {
             <path d="M12 0C5.373 0 0 5.373 0 12c0 2.157.57 4.179 1.567 5.939L.067 24l6.237-1.61A11.964 11.964 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.326 17.306c-.313.876-1.293 1.59-2.128 1.725-.568.09-1.291.158-3.742-.797-3.144-1.228-5.161-4.3-5.32-4.507-.158-.208-1.273-1.695-1.273-3.239s.808-2.295 1.092-2.609c.283-.314.63-.39.841-.39.206 0 .422.002.605.011.198.01.465-.075.727.558.273.648.93 2.06 1.013 2.208.08.146.133.314.027.506-.105.191-.158.311-.307.478-.149.167-.313.372-.446.5-.151.148-.309.31-.134.609.176.3.779 1.283 1.67 2.077 1.147 1.025 2.099 1.344 2.39 1.496.293.15.465.128.641-.078.176-.205.734-.853.931-1.145.199-.293.392-.238.666-.143.275.095 1.738.818 2.038.966.3.149.5.225.575.354.07.13.07.751-.244 1.627z" />
           </svg>
         </a>
+      </div>
+      <div>
+        <footer class=" text-white py-6">
+          <div class="container mx-auto text-center">
+            <p class="text-sm">© 2024 Latinux. Todos los derechos reservados.</p>
+          </div>
+        </footer>
       </div>
     </div>
   );
